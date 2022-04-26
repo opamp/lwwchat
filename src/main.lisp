@@ -26,7 +26,8 @@
         (lambda (msg)
           (let ((dist-clients (gethash roomname *clients*)))
             (dolist (client dist-clients)
-              (send client msg)))))
+              (unless (eq client ws)
+                (send client msg))))))
     (on :close ws
         (lambda (&key code reason)
           (let ((dist-clients (gethash roomname *clients*)))
@@ -56,7 +57,7 @@
       (cond
         ((and (string= (first cmd) "room")
               (= 1 (length (second cmd))))
-         (ws-handle env))
+         (ws-handle env (first (second cmd))))
         ((string= (first cmd) "delete")
          (delete-handle (second cmd)))
         (t (error-handle))))))
