@@ -3,7 +3,8 @@
   :author "Masahiro NAGATA"
   :license "MIT"
   :depends-on ("websocket-driver"
-               "clack")
+               "clack"
+               "cl-ppcre")
   :components ((:module "src"
                 :components
                 ((:file "main"))))
