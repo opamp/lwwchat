@@ -1,7 +1,7 @@
 (defsystem "lwwchat"
   :version "0.1.0"
   :author "Masahiro NAGATA"
-  :license "MIT"
+  :license "BSD 2-Clause"
   :depends-on ("websocket-driver"
                "clack"
                "cl-ppcre")
